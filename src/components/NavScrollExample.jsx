@@ -1,5 +1,6 @@
 import React from 'react'
 
+
 export default function NavScrollExample() {
   
 
@@ -74,15 +75,7 @@ export default function NavScrollExample() {
         </div>
       </div>
     </div>
-    <div className="section container my-4">
-      <div className="d-flex justify-content-start">
-        <h3>What's Popular</h3>
-        <div className='d-flex ms-3'>
-        <p className='buttons border fw-bold p-2'>On TV</p>
-        <p className='buttons border fw-bold p-2'>In Theaters</p>
-        </div>
-      </div>
-    </div>
+    
     </div>
     )
   }

@@ -23,6 +23,60 @@
   font-size: calc(10px + 2vmin);
   color: white;
 }
+.myBtn{
+  width: 200px;
+  height: 35px;
+  border-radius: 20px;
+}
+
+.section {
+  max-width: 100%;
+  height: auto;
+}
+
+.car_title {
+  font-weight: 600;
+}
+
+.carusel1_image {
+  height: 220px !important;
+  /* width: 150px !important; */
+  border-radius: 10px !important;
+}
+
+.carusel1 {
+  width: 150px;
+  height: 350px;
+  box-sizing: border-box;
+}
+
+.slider-container {
+  --swiffy-slider-item-gap-totalwidth: 0 !important;
+  --swiffy-slider-item-width: calc((100% - var(--swiffy-slider-item-reveal) - var(--swiffy-slider-item-gap-totalwidth)) / var(--swiffy-slider-item-count));
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  -ms-scroll-snap-type: x mandatory;
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+  display: grid;
+  align-items: center;
+  height: 100%;
+  grid: auto/auto-flow -webkit-max-content;
+  grid: auto/auto-flow max-content;
+      grid-auto-rows: auto;
+      grid-auto-columns: max-content;
+      grid-auto-flow: column;
+  grid-auto-rows: 100%;
+  grid-auto-columns: var(--swiffy-slider-item-width);
+  grid-auto-flow: column;
+  grid-gap: var(--swiffy-slider-item-gap);
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  scrollbar-width: none;
+  scrollbar-color: rgba(0,0,0,.4) rgba(0,0,0,var(--swiffy-slider-track-opacity));
+  background-clip: padding-box;
+}
 
 .App-link {
   color: #61dafb;
