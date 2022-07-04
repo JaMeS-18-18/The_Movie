@@ -49,6 +49,23 @@
   height: 350px;
   box-sizing: border-box;
 }
+.my__caard{
+  background-image: url('https://www.themoviedb.org/assets/2/v4/glyphicons/basic/glyphicons-basic-36-user-female-grey-d9222f16ec16a33ed5e2c9bbdca07a4c48db14008bbebbabced8f8ed1fa2ad59.svg');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  width: 100%;
+  height: 100% ;
+}
+.imgages{
+  width: 200px;
+  height: 300px;
+}
+.cardd{
+  border: 1px solid rgba(77, 76, 76, 0.712);
+  border-radius: 20px;
+  padding: 10px;
+}
 
 .slider-container {
   --swiffy-slider-item-gap-totalwidth: 0 !important;

@@ -1,7 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import axios from "axios"
+import { useDispatch } from 'react-redux';
 
 const Toggle = () => {
+  let dispatch = useDispatch()
   const [data, setData] = useState([])
   const [data2, setData2] = useState([])
   const [data3, setData3] = useState([])
@@ -31,7 +33,6 @@ const Toggle = () => {
       })
       
     }, []);
-    console.log(data3, data4);
   function send() {
     document.querySelector(".buttons1").classList.add("luboy")
     document.querySelector(".buttons").classList.remove("luboy1")
@@ -55,6 +56,13 @@ const Toggle = () => {
     setCheck2(false)
   }
 
+
+  // function Chiqar(index) {
+  //   document.querySelector(".more_card").classList.toggle("d-none")
+  // }
+  
+
+
   return (
     <div className='container-fluid'>
       <div className="section">
@@ -73,12 +81,16 @@ const Toggle = () => {
               {
                 (data.length > 0 && Check) && data.map((item, index) => {
                   return (
-                    <div className='carusel1' key={index}>
+                    <div className='carusel1'  key={index}>
                       <div className="positsiya">
                         <div className="line">
                           <div className='pratsent'>{item.vote_average * 10} <sup className='sup'>%</sup>
-
-                          </div>
+                        </div>
+                        <div  className='more'>...</div>
+                        <div className=' more_card'>
+                          <div className='d-flex justify-content-around my-2 pointer' onClick={()=>{dispatch({type:"add", payload: item})}}><i class="bi bi-heart-fill"></i>Favorite</div>
+                          <div className='d-flex justify-content-around my-2 pointer'><i class="bi bi-save-fill"></i> Watchlist</div>
+                        </div>
                         </div>
                       </div>
                       <img className='carusel1_image' src={`https://image.tmdb.org/t/p/w300` + item.poster_path} loading="lazy" alt="" />
