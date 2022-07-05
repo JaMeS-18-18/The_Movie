@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from "axios"
 import { useDispatch } from 'react-redux';
+import { Link } from 'react-router-dom';
 
 const Toggle = () => {
   let dispatch = useDispatch()
@@ -22,17 +23,17 @@ const Toggle = () => {
         setData3(res.data.results);
       })
 
-    axios.get(`https://api.themoviedb.org/3/movie/top_rated?api_key=acfaeb6837638498f011e5e16a9e305d&language=en-US&page=1`)
+    axios.get(`https://api.themoviedb.org/3/tv/top_rated?api_key=acfaeb6837638498f011e5e16a9e305d&language=en-US&page=1`)
       .then(res => {
         setData2(res.data.results);
       })
 
-    axios.get(`https://api.themoviedb.org/3/movie/upcoming?api_key=acfaeb6837638498f011e5e16a9e305d&language=en-US&page=1`)
+    axios.get(`https://api.themoviedb.org/3/tv/on_the_air?api_key=acfaeb6837638498f011e5e16a9e305d&language=en-US&page=1`)
       .then(res => {
         setData4(res.data.results);
       })
-      
-    }, []);
+
+  }, []);
   function send() {
     document.querySelector(".buttons1").classList.add("luboy")
     document.querySelector(".buttons").classList.remove("luboy1")
@@ -60,7 +61,7 @@ const Toggle = () => {
   // function Chiqar(index) {
   //   document.querySelector(".more_card").classList.toggle("d-none")
   // }
-  
+
 
 
   return (
@@ -81,19 +82,19 @@ const Toggle = () => {
               {
                 (data.length > 0 && Check) && data.map((item, index) => {
                   return (
-                    <div className='carusel1'  key={index}>
+                    <div className='carusel1' key={index}>
                       <div className="positsiya">
                         <div className="line">
                           <div className='pratsent'>{item.vote_average * 10} <sup className='sup'>%</sup>
-                        </div>
-                        <div  className='more'>...</div>
-                        <div className=' more_card'>
-                          <div className='d-flex justify-content-around my-2 pointer' onClick={()=>{dispatch({type:"add", payload: item})}}><i class="bi bi-heart-fill"></i>Favorite</div>
-                          <div className='d-flex justify-content-around my-2 pointer'><i class="bi bi-save-fill"></i> Watchlist</div>
-                        </div>
+                          </div>
+                          <div className='more'>...</div>
+                          <div className=' more_card'>
+                            <div className='d-flex justify-content-around my-2 pointer' onClick={() => { dispatch({ type: "add", payload: item }) }}><i class="bi bi-heart-fill"></i>Favorite</div>
+                            <div className='d-flex justify-content-around my-2 pointer' onClick={() => { dispatch({ type: 'addWacchlist', payload: item }) }} ><i class="bi bi-save-fill"></i> Watchlist</div>
+                          </div>
                         </div>
                       </div>
-                      <img className='carusel1_image' src={`https://image.tmdb.org/t/p/w300` + item.poster_path} loading="lazy" alt="" />
+                      <Link to={`/about/:${item.id}`} state={{id: item.id}}> <img className='carusel1_image' src={`https://image.tmdb.org/t/p/w300` + item.poster_path} loading="lazy" alt="" /></Link>
 
                       <div className="mt-4 text-start">
                         <h6 className='fw-bold fs-6'>{item.name}</h6>
@@ -111,7 +112,11 @@ const Toggle = () => {
                       <div className="positsiya">
                         <div className="line">
                           <div className='pratsent'>{item.vote_average * 10} <sup className='sup'>%</sup>
-
+                          </div>
+                          <div className='more'>...</div>
+                          <div className=' more_card'>
+                            <div className='d-flex justify-content-around my-2 pointer' onClick={() => { dispatch({ type: "add", payload: item }) }}><i class="bi bi-heart-fill"></i>Favorite</div>
+                            <div className='d-flex justify-content-around my-2 pointer' onClick={() => { dispatch({ type: 'addWacchlist', payload: item }) }} ><i class="bi bi-save-fill"></i> Watchlist</div>
                           </div>
                         </div>
                       </div>
@@ -153,15 +158,19 @@ const Toggle = () => {
                       <div className="positsiya">
                         <div className="line">
                           <div className='pratsent'>{item.vote_average * 10} <sup className='sup'>%</sup>
-
+                          </div>
+                          <div className='more'>...</div>
+                          <div className=' more_card'>
+                            <div className='d-flex justify-content-around my-2 pointer' onClick={() => { dispatch({ type: "add", payload: item }) }}><i class="bi bi-heart-fill"></i>Favorite</div>
+                            <div className='d-flex justify-content-around my-2 pointer' onClick={() => { dispatch({ type: 'addWacchlist', payload: item }) }} ><i class="bi bi-save-fill"></i> Watchlist</div>
                           </div>
                         </div>
                       </div>
                       <img className='carusel1_image' src={`https://image.tmdb.org/t/p/w300` + item.poster_path} loading="lazy" alt="" />
 
                       <div className="mt-4 text-start">
-                        <h6 className='fw-bold fs-6'>{item.title}</h6>
-                        <p>{item.release_date}</p>
+                        <h6 className='fw-bold fs-6'>{item.name}</h6>
+                        <p>{item.first_air_date}</p>
                       </div>
                     </div>
                   )
@@ -175,15 +184,19 @@ const Toggle = () => {
                       <div className="positsiya">
                         <div className="line">
                           <div className='pratsent'>{item.vote_average * 10} <sup className='sup'>%</sup>
-
+                          </div>
+                          <div className='more'>...</div>
+                          <div className=' more_card'>
+                            <div className='d-flex justify-content-around my-2 pointer' onClick={() => { dispatch({ type: "add", payload: item }) }}><i class="bi bi-heart-fill"></i>Favorite</div>
+                            <div className='d-flex justify-content-around my-2 pointer' onClick={() => { dispatch({ type: 'addWacchlist', payload: item }) }} ><i class="bi bi-save-fill"></i> Watchlist</div>
                           </div>
                         </div>
                       </div>
                       <img className='carusel1_image' src={`https://image.tmdb.org/t/p/w300` + item.poster_path} loading="lazy" alt="" />
 
                       <div className="mt-4 text-start">
-                        <h6 className='fw-bold fs-6'>{item.title}</h6>
-                        <p>{item.release_date}</p>
+                        <h6 className='fw-bold fs-6'>{item.name}</h6>
+                        <p>{item.first_air_date}</p>
                       </div>
                     </div>
                   )

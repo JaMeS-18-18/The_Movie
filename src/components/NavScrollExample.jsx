@@ -43,8 +43,8 @@ export default function NavScrollExample() {
                 <li className="nav-item">
                   <a className="nav-link active" aria-current="page" href="#">Saved</a>
                   <ul>
-                  <li> <Link className='text-black text-decoration-none' to="/seeJsx"> Favourute</Link> </li>
-                    <li>Watch List</li>
+                    <li> <Link className='text-black text-decoration-none' to="/seeJsx"> Favourute</Link> </li>
+                    <li> <Link className='text-black text-decoration-none' to="/seeJsx1">  Watchlist </Link> </li>
                   </ul>
                 </li>
               </ul>

@@ -1,11 +1,11 @@
 import React from 'react';
 import { useSelector } from 'react-redux'
-
-const SeeFavourite = () => {
-    const state = useSelector(state => state.favourite)
+const SeeWatchList = () => {
+    const state = useSelector(state => state.WatchList)
     return (
-        <div className='container-fluid row'>
-            <h4 className='text-start'>My Favourite</h4>
+        <div>
+            <div className='container-fluid row'>
+            <h4 className='text-start'>My Watchlist</h4>
             {
                 (state.length > 0) && state.map((item, index) => {
                     return (
@@ -25,7 +25,8 @@ const SeeFavourite = () => {
                 })
             }
         </div>
+        </div>
     );
 }
 
-export default SeeFavourite;
+export default SeeWatchList;

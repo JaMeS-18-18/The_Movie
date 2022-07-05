@@ -15,6 +15,9 @@ import People from './components/People/People';
 import { Provider } from 'react-redux'
 import store from './components/Favourite/Favourte';
 import SeeFavourite from './components/Favourite/SeeFavourite';
+import SeeWatchList from './components/Favourite/SeeWatchList';
+import Search from './components/Search/Search';
+import About from './components/AboutMovi/About';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -31,6 +34,9 @@ root.render(
             <Route path='/OnTV' element={<OnTv />} />
             <Route path='/People' element={<People />} />
             <Route path='/seeJsx' element={<SeeFavourite />} />
+            <Route path='/seeJsx1' element={<SeeWatchList />} />  
+            <Route path='/search/:id' element={<Search/>} />  
+            <Route path='/about/:id' element={<About/>} />  
             <Route index element={<Header />} />
 
           </Route>
